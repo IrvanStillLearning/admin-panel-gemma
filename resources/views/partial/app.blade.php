@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style-additional.css') }}">
 
     <style>
+        .ck-editor__editable {
+            min-height: 150px;
+        }
         .table tbody td {
             vertical-align: middle;
         }
@@ -102,6 +105,7 @@
     <script src="{{ asset('assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/modules/jquery-selectric/jquery.selectric.min.js') }}"></script>
     <script src="{{ asset('assets/modules/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/chart.min.js') }}"></script>
     <script src="{{asset('assets/modules/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
     {{-- <script src="{{asset('assets/modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}"></script> --}}
 
@@ -110,6 +114,8 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/modules/prism/prism.js') }}"></script>
     <link rel="stylesheet" href="{{asset('assets/modules/izitoast/css/iziToast.min.css')}}">
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
 
 
     <!-- Page Specific JS File -->
@@ -133,13 +139,6 @@
                 viewMode: "years",
                 minViewMode: "years"
             });
-        });
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                // 'Authorization': '{{session()->get('token_jwt')}}',
-            }
         });
     </script>
 

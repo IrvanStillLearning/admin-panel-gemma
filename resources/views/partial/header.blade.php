@@ -27,10 +27,10 @@
   <div class="main-sidebar">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="index.html">REPOSITORY</a>
+        <a href="index.html">Admin Panel</a>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
-        <a href="index.html">UPN</a>
+        <a href="index.html">Gema</a>
       </div>
         <?php
           $url_menu = Request::segment(1);
@@ -41,8 +41,11 @@
           <li class="nav-item dropdown @if($url_menu == "dashboard") active @endif"><a href="/dashboard" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a></li> 
           
           <li class="menu-header">Apps</li>
-          <li class="nav-item dropdown"><a href="/produk" class="nav-link"><i class="fas fa-home"></i><span>Produk</span></a></li> 
-          <li class="nav-item dropdown"><a href="/kas" class="nav-link"><i class="fas fa-home"></i><span>Kas</span></a></li> 
+          <li class="nav-item dropdown  @if($url_menu == "produk") active @endif""><a href="/produk" class="nav-link"><i class="fas fa-home"></i><span>Produk</span></a></li> 
+          <li class="nav-item dropdown  @if($url_menu == "kas") active @endif""><a href="/kas" class="nav-link"><i class="fas fa-home"></i><span>Kas</span></a></li> 
+
+          <li class="menu-header">Data Master</li>
+          <li class="nav-item dropdown  @if($url_menu == "data-banner") active @endif""><a href="/data-banner" class="nav-link"><i class="fas fa-audio-description"></i><span>Data Banner</span></a></li> 
         </ul>
         
     </aside>

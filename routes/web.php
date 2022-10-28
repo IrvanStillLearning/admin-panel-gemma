@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function(){
+    return redirect('dashboard');
+});
+
+Route::get('dashboard', function () {
     return view('dashboard.index');
 });
+
+Route::get('login', function() {
+    return view('login.login');
+});
+
+Route::get('register', function() {
+    return view('login.register');
+});
+
+Route::get('kas', function () {
+    return view('kas');
+});
+
+Route::get('produk', function () {
+    return view('produk');
+});
+
+Route::get('data-banner', [BannerController::class, 'index']);
+
+
