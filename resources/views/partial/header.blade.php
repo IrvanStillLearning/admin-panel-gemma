@@ -45,7 +45,7 @@
           <li class="nav-item dropdown  @if($url_menu == "kas") active @endif""><a href="/kas" class="nav-link"><i class="fas fa-home"></i><span>Kas</span></a></li> 
 
           <li class="menu-header">Data Master</li>
-          <li class="nav-item dropdown  @if($url_menu == "data-banner") active @endif""><a href="/data-banner" class="nav-link"><i class="fas fa-audio-description"></i><span>Data Banner</span></a></li> 
+          <li class="nav-item dropdown  @if($url_menu == "banner") active @endif""><a href="/banner" class="nav-link"><i class="fas fa-audio-description"></i><span>Data Banner</span></a></li> 
         </ul>
         
     </aside>

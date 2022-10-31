@@ -38,6 +38,12 @@ Route::get('produk', function () {
     return view('produk');
 });
 
-Route::get('data-banner', [BannerController::class, 'index']);
+Route::prefix('banner')->group(function () {
+    Route::get('/', [BannerController::class, 'index']);
+    Route::get('/detail/{id}', [BannerController::class, 'detail']);
+    Route::get('datatables', [BannerController::class, 'datatables']);
+    Route::post('store-update', [BannerController::class, 'store_update']);
 
+    Route::delete('delete/{id}', [BannerController::class, 'delete']);
+});
 

@@ -123,6 +123,7 @@
     <script src="{{ asset('assets/js/page/bootstrap-modal.js') }}"></script>
     <script src="{{asset('assets/modules/izitoast/js/iziToast.min.js')}}"></script>
 
+     @include('scriptjs')
     <script type="text/javascript">
         $(document).ready(function() {
             $(".datepicker").datepicker({
@@ -139,6 +140,13 @@
                 viewMode: "years",
                 minViewMode: "years"
             });
+        });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                // 'Authorization': '{{session()->get('token_jwt')}}',
+            }
         });
     </script>
 
