@@ -58,7 +58,7 @@ class BannerController extends Controller
         $file = $request->file('upload_image');
 
         $place_image = 'berkas/master-banner/';
-        $name_image =  md5(time()."_".$file->getClientOriginalName()).".".$file->getClientOriginalExtension();
+        $name_image =  $file->getClientOriginalName().".".$file->getClientOriginalExtension();
 
         $file->move($place_image, $name_image);
         $database_file = $place_image . $name_image;
