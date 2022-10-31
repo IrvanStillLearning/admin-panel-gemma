@@ -19,6 +19,7 @@ class Banner extends Model
         if(request('search')) {
             return $query->where('judul', 'like', '%'.request("search").'%')
                    ->orWhere('image', 'like', '%'.request('search').'%')
+                   ->orWhere('status', 'like', '%'.request('search').'%')
                    ->orWhereHas('user', function($data){
                         $data->where('name', 'like', '%'.request("search").'%');
                    });
