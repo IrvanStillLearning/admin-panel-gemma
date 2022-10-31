@@ -13,14 +13,4 @@ class BannerController extends Controller
         $data['banner'] = Banner::all();
         return view('admin.data-banner', $data);
     }
-
-    public function store(Request $request){
-        $this->validate($request, [
-            'title' => 'required',
-            'deskripsi' => 'required',
-            'status' => 'required'
-        ]);
-
-        return 123;
-    }
 }

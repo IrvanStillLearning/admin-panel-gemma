@@ -13,14 +13,14 @@
                         <button type="button" style="margin-right: 10px" class="btn btn-warning" onclick="add();"><i class="fa fa-plus mr-1"></i>
                             Tambah Banner</button>
                     </div>
-                    <form>
+                    <form action="/banner">
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search">
+                          <input type="text" class="form-control" name="search" id="search" placeholder="Search">
                           <div class="input-group-btn">
                             <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                           </div>
                         </div>
-                      </form>
+                    </form>
                 </div>
 
                 <div class="row mx-2">
@@ -31,7 +31,7 @@
                                     <table class="table table-striped table-md">
                                         <tr class="bg-success text-light">
                                             <th>#</th>
-                                            <th>Nama</th>
+                                            <th>Image</th>
                                             <th>Judul</th>
                                             <th>Desc</th>
                                             <th>Status</th>
@@ -41,7 +41,7 @@
                                         @foreach ($banner as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
-                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->image }}</td>
                                             <td>{{ $item->judul }}</td>
                                             <td>{{ $item->desc }}</td>
                                             <td>

@@ -38,6 +38,9 @@ Route::get('produk', function () {
     return view('produk');
 });
 
-Route::get('data-banner', [BannerController::class, 'index']);
+
+Route::prefix('banner')->group(function () {
+    Route::get('/', [BannerController::class, 'index']);
+});
 
 
