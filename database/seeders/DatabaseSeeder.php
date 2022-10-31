@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(5)->create();
+
         Banner::create([
             'image' => 'Banner-1.jpg',
             'judul' => 'Judul Banner 1',
@@ -91,28 +92,6 @@ class DatabaseSeeder extends Seeder
             'status' => false,
             'user_id' => 1,
             'desc' => Str::random(20),
-        ]);
-
-        User::create([
-            'name' => 'Adam',
-            'email' => 'sugitpurnomo@gmail.com',
-            'password' => bcrypt('big admin'),
-        ]);
-
-        User::create([
-            'name' => 'Irvan',
-            'email' => 'irvanadmin@gmail.com',
-            'password' => bcrypt('admin'),
-        ]);
-        User::create([
-            'name' => 'Egha',
-            'email' => 'eghaadmin@gmail.com',
-            'password' => bcrypt('admin'),
-        ]);
-        User::create([
-            'name' => 'Febri',
-            'email' => 'febriadmin@gmail.com',
-            'password' => bcrypt('admin'),
         ]);
     }
 }

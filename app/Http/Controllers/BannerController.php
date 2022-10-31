@@ -9,8 +9,9 @@ use App\Models\banner;
 
 class BannerController extends Controller
 {
-    public function index(){
-        $data['banner'] = Banner::all();
+    public function index(){        
+        $data['banner'] = Banner::with('user')->latest()->filter()->get();
+
         return view('admin.data-banner', $data);
     }
 }
