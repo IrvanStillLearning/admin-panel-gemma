@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Banner extends Model
 {
     use HasFactory;
+    protected $table = 'banners';
 
     protected $guarded = ['id'];
 
@@ -17,9 +18,10 @@ class Banner extends Model
 
     public function scopeFilter($query){
         if(request('search')) {
+            if(request('search') == 'active'){return $query->where('status', 'like', 1);};
+            if(request('search') == 'non active'){return $query->where('status', 'like', 0);};
             return $query->where('judul', 'like', '%'.request("search").'%')
                    ->orWhere('image', 'like', '%'.request('search').'%')
-                   ->orWhere('status', 'like', '%'.request('search').'%')
                    ->orWhereHas('user', function($data){
                         $data->where('name', 'like', '%'.request("search").'%');
                    });

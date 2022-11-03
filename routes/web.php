@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BannerController;
+use App\Models\Banner;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,9 @@ Route::get('produk', function () {
 
 Route::prefix('banner')->group(function () {
     Route::get('/', [BannerController::class, 'index']);
+
+    Route::post('upload', [BannerController::class, 'store']);
+    Route::delete('/delete/{id}', [BannerController::class, 'destroy']);
 });
 
 

@@ -6,3 +6,49 @@
 .shadow-bottom{
     box-shadow: 0 1px 8px #ececec;
 }
+
+.fa-times {
+    -webkit-animation: blink-1 2s infinite both;
+	        animation: blink-1 2s infinite both;
+}
+
+
+.toast-notification .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+}
+
+.toast-notification .progress::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;;
+    animation: progress 15s linear forwards;
+}
+
+.toast-notification .progress::before{background-color: #000;}
+.toast-notification .progress_error{background-color: #fc544b;}
+.toast-notification .progress_success{background-color: #47c363;}
+
+@keyframes progress{
+    100%{
+        right: 100%;
+    }
+}
+
+@keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}

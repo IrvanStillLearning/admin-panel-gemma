@@ -99,6 +99,9 @@
     <script src="{{ asset('assets/modules/moment.min.js') }}"></script>
     <script src="{{ asset('assets/modules/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/js/stisla.js') }}"></script>
+    <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/js/ckeditor.js.map') }}"></script>
+    <script src="{{ asset('assets/js/script-additional.js') }}"></script>
 
     <!-- JS Libraies -->
     <script src="{{ asset('assets/modules/jquery-ui/jquery-ui.min.js') }}"></script>
@@ -114,8 +117,6 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/modules/prism/prism.js') }}"></script>
     <link rel="stylesheet" href="{{asset('assets/modules/izitoast/css/iziToast.min.css')}}">
-
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
 
 
     <!-- Page Specific JS File -->
