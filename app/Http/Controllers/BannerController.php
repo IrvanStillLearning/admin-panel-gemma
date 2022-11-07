@@ -30,6 +30,10 @@ class BannerController extends Controller
         return redirect('/banner')->with('success', 'Banner Berhasil Ditambahkan');
     }
 
+    public function edit($id){
+        return Banner::find($id);
+    }
+
     public function destroy($id){
         Banner::destroy($id);
         return redirect('/banner')->with('success', 'Banner Berhasil Dihapus');

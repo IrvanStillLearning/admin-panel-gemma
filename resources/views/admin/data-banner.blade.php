@@ -86,13 +86,10 @@
                                             </td>
                                             <td class="text-center">{{ $item->user->name }}</td>
                                             <td>
-                                                <form action="/banner/{{ $item->id }}" method="POST" style="display: inline-block">
-                                                    @csrf
-                                                    @method('put')
-                                                    <button class="btn btn-info btn-sm" onclick="edit()">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                </form>
+                                                @csrf
+                                                <button class="btn btn-info btn-sm" onclick="edit({{ $item->id }})">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
                                                 <form action="/banner/delete/{{ $item->id }}" method="post" class="d-inline">
                                                     @csrf
                                                     @method('delete')
@@ -188,9 +185,40 @@
         $(".modal-title").text('Tambah Banner Produk');
     }
 
-    function edit() {
+    function edit($url) {
+        save_method = 'edit';
         $("#modal").modal('show');
+        $('#modal_loading').modal('show');
+        $url = "Banner" + $url;
         $(".modal-title").text('Edit Banner Produk');
+        $.ajax({
+          url : $url,
+          type: "GET",
+          dataType: "JSON",
+          success: function(response){
+                console.log(response);
+                Object.keys(response).forEach(function (key) {
+                var elem_name = $('[name=' + key + ']');
+                if (elem_name.hasClass('selectric')) {
+                   elem_name.val(response[key]).change().selectric('refresh');
+                }else if(elem_name.hasClass('select2')){
+                   elem_name.select2("trigger", "select", { data: { id: response[key] } });
+                }else if(elem_name.hasClass('selectgroup-input')){
+                   $("input[name="+key+"][value=" + response[key] + "]").prop('checked', true);
+                }else if(elem_name.hasClass('my-ckeditor')){
+                   CKEDITOR.instances[key].setData(response[key]);
+                }else{
+                   elem_name.val(response[key]);
+                }
+             });
+          },error: function (jqXHR, textStatus, errorThrown){
+            setTimeout(() => {
+                $('#modal_loading').modal('hide');
+            }, 500);
+             console.log('Error get data');
+          }
+       });
+
     }
 
     $('.status_list').on("click", function () {
