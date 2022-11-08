@@ -86,7 +86,6 @@
                                             </td>
                                             <td class="text-center">{{ $item->user->name }}</td>
                                             <td>
-                                                @csrf
                                                 <button class="btn btn-info btn-sm" onclick="edit({{ $item->id }})">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -189,7 +188,8 @@
         save_method = 'edit';
         $("#modal").modal('show');
         $('#modal_loading').modal('show');
-        $url = "Banner" + $url;
+        $url = 'banner/edit/' + $url;
+        console.log($url)
         $(".modal-title").text('Edit Banner Produk');
         $.ajax({
           url : $url,
@@ -218,7 +218,6 @@
              console.log('Error get data');
           }
        });
-
     }
 
     $('.status_list').on("click", function () {

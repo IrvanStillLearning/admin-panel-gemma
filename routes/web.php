@@ -44,7 +44,7 @@ Route::prefix('banner')->group(function () {
     Route::get('/', [BannerController::class, 'index']);
 
     Route::post('upload', [BannerController::class, 'store']);
-    Route::delete('/{id}', [BannerController::class, 'edit']);
+    Route::get('edit/{id}', [BannerController::class, 'edit']);
     Route::delete('delete/{id}', [BannerController::class, 'destroy']);
 });
 
