@@ -16,8 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(5)->create();
-
         Banner::create([
             'image' => 'Banner-1.jpg',
             'judul' => 'Judul Banner 1',

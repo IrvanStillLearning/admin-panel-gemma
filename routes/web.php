@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Banner;
 
 /*
@@ -15,37 +17,44 @@ use App\Models\Banner;
 |
 */
 
-Route::get('/', function(){
-    return redirect('dashboard');
+Route::prefix('login')->group(function(){
+    Route::get('/', [LoginController::class, 'index'])->name('login');
+    Route::post('/', [LoginController::class, 'authenticate']);
 });
 
-Route::get('dashboard', function () {
-    return view('dashboard.index');
-});
+Route::group(['middleware' => 'auth'], function(){    
+    Route::get('/', function(){
+        return redirect('dashboard');
+    });
+    
+    Route::get('dashboard', function () {
+        return view('dashboard.index');
+    })->name('dashboard');
+    
+    Route::prefix('register')->group(function () {
+        Route::get('/', [RegisterController::class, 'index']);
+        Route::post('store', [RegisterController::class, 'store']);
+    });
+    
+    Route::get('kas', function () {
+        return view('kas');
+    });
+    
+    Route::get('produk', function () {
+        return view('produk');
+    });
+    
+    
+    Route::prefix('banner')->group(function () {
+        Route::get('/', [BannerController::class, 'index']);
+    
+        Route::post('upload', [BannerController::class, 'store']);
+        Route::get('edit/{id}', [BannerController::class, 'edit']);
+        Route::delete('delete/{id}', [BannerController::class, 'destroy']);
+    });
 
-Route::get('login', function() {
-    return view('login.login');
-});
-
-Route::get('register', function() {
-    return view('login.register');
-});
-
-Route::get('kas', function () {
-    return view('kas');
-});
-
-Route::get('produk', function () {
-    return view('produk');
-});
-
-
-Route::prefix('banner')->group(function () {
-    Route::get('/', [BannerController::class, 'index']);
-
-    Route::post('upload', [BannerController::class, 'store']);
-    Route::get('edit/{id}', [BannerController::class, 'edit']);
-    Route::delete('delete/{id}', [BannerController::class, 'destroy']);
+    Route::get('logout', [LoginController::class, 'logout']);
+    
 });
 
 

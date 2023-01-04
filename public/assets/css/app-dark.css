@@ -1,0 +1,102 @@
+body{
+    background: #2a3041;
+}
+
+.main-sidebar{
+    background: #2a3142;
+}
+
+.main-sidebar .sidebar-brand{
+    background: #2a3142;
+}
+
+.main-sidebar .sidebar-brand a{
+    color: white!important;
+}
+
+.main-sidebar .sidebar-menu li.active a{
+    background: #383b4e;
+    color: #b4c9de!important
+}
+
+.navbar-bg{
+    background: #36394c;
+    z-index: 100;
+}
+
+.main-content{
+    background: #2a3041;
+}
+
+.section{
+    z-index: 101;
+}
+
+.section-header{
+    background: #222736!important;
+}
+
+.section .section-header h1{
+    color: #e9ecef!important;
+}
+
+.card{
+    background: #222736;
+}
+
+.card .card-stats .card-stats-title{
+    background: #222736;
+}
+
+.gradient-bottom:after{
+    background-image: unset!important;
+}
+
+.shadow-primary{
+    box-shadow: 0 2px 6px #313553;
+}
+
+body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-menu li a{
+    background: #2a3142;
+}
+
+.card .card-header{
+    border-bottom: #343b51!important;
+}
+
+.btn{
+    box-shadow: unset!important;
+}
+
+.page-item.disabled .page-link{
+    background: #2a3041;
+}
+
+div.dataTables_wrapper div.dataTables_filter input{
+    background: #353e53;
+    border: #2f3358;
+    color: white!important;
+}
+
+body.sidebar-mini .main-sidebar:after{
+    background-color: #2f3358!important;
+}
+
+body.sidebar-mini .main-sidebar .sidebar-menu > li.active > a{
+    box-shadow: unset!important;
+}
+
+
+table.dataTable.no-footer{
+    border-bottom: 1px solid #38445d !important;
+    color: #fff;
+}
+
+thead{
+    border-bottom: 2px solid #253350 !important;
+}
+
+div.dataTables_wrapper div.dataTables_length select{
+    background: #3e4758;
+    color: white;
+}

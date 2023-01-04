@@ -12,7 +12,6 @@ class BannerController extends Controller
     public function index(){        
         $data['banner'] = Banner::with('user')->latest()->filter()->paginate(5)->withQueryString();
 
-
         return view('admin.data-banner', $data);
     }
 
